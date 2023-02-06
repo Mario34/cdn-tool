@@ -1,0 +1,16 @@
+{
+  "name": "cdn-tool",
+  "version": "1.0.0",
+  "description": "同步第三方cdn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ali-oss": "^6.17.1",
+    "got": "^12.5.3"
+  }
+}
