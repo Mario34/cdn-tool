@@ -4,13 +4,34 @@
   "description": "同步第三方cdn",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky install",
+    "dev": "node ./lib/index.mjs",
+    "watch": "rollup --config rollup.config.dev.ts --configPlugin typescript --watch",
+    "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "lint": "eslint --ext .ts src"
   },
-  "type": "module",
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "ali-oss": "^6.17.1",
-    "got": "^12.5.3"
+    "chalk": "^5.2.0",
+    "got": "^12.5.3",
+    "ora": "^6.1.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@mario34/eslint-config-ts": "^1.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/fs-extra": "^11.0.1",
+    "@types/node": "^18.13.0",
+    "eslint": "^8.33.0",
+    "fs-extra": "^11.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.1",
+    "rollup": "^3.14.0",
+    "typescript": "^4.9.5"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --fix"
   }
 }
