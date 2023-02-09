@@ -1,6 +1,6 @@
 {
   "name": "@mario34/cdn-tool",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "cdn工具",
   "main": "index.js",
   "scripts": {
@@ -18,13 +18,12 @@
     "ora": "^6.1.2"
   },
   "files": [
-    "lib"
+    "lib/*"
   ],
   "type": "module",
   "exports": {
-    ".": {
-      "import": "./lib/index.js"
-    }
+    ".": "./lib/index.js",
+    "./lib": "./lib"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",
