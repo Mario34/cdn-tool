@@ -1,6 +1,6 @@
 {
   "name": "@mario34/cdn-tool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cdn工具",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./lib/esm/index.js"
+      "import": "./lib/index.js"
     }
   },
   "devDependencies": {
