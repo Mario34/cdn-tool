@@ -12,6 +12,6 @@
   "include": ["./src", "test/index.spec.js"],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
   ]
 }

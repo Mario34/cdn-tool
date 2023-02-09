@@ -5,7 +5,7 @@ export default defineConfig({
   input: 'src/index.ts',
   output: {
     format: 'module',
-    file: 'lib/index.mjs',
+    file: 'lib/esm/index.js',
   },
   strictDeprecations: true,
   watch: {
@@ -14,7 +14,6 @@ export default defineConfig({
   plugins: [
     tsPlugin({
       tsconfig: './tsconfig.json',
-      outDir: './',
     }),
   ],
 })
