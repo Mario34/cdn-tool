@@ -1,6 +1,6 @@
 {
   "name": "@mario34/cdn-tool",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "cdn工具",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "lib/*"
   ],
   "type": "module",
+  "types": "./lib/",
   "exports": {
     ".": "./lib/index.js",
     "./lib": "./lib"
