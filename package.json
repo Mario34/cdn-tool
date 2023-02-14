@@ -26,6 +26,17 @@
     ".": "./lib/index.js",
     "./lib": "./lib"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mario34/cdn-tool.git"
+  },
+  "keywords": [
+    "browser version"
+  ],
+  "homepage": "https://github.com/Mario34/cdn-tool#readme",
+  "bugs": {
+    "url": "https://github.com/Mario34/cdn-tool/issues"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
