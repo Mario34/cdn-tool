@@ -1,6 +1,6 @@
 {
   "name": "@mario34/cdn-tool",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "cdn工具",
   "main": "index.js",
   "scripts": {
