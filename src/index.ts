@@ -23,7 +23,7 @@ export interface GetPkgsFileOption {
 }
 
 function getPackageApi({ name, version }: CDNToolNS.PkgConfig) {
-  return `https://data-jsdelivr-com-preview.onrender.com/v1/packages/npm/${`${name}@${version}`}`
+  return `https://data.jsdelivr.com/v1/packages/npm/${`${name}@${version}`}`
 }
 
 export async function getPkgFile(option: GetPkgsFileOption) {
