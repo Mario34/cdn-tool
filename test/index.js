@@ -1,4 +1,4 @@
-import { getPkgFile } from '../lib/index.js'
+import { getPkgFile } from '../src/index.js'
 import path from 'path'
 import fs from 'fs-extra'
 import { fileURLToPath } from 'url'
