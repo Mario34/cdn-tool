@@ -1,4 +1,4 @@
-import { getPkgFile } from '../src/index.js'
+import { getPkgFile } from '../lib/esm/index.js'
 import path from 'path'
 import fs from 'fs-extra'
 import { fileURLToPath } from 'url'
@@ -20,8 +20,8 @@ const pkgList = [
 
 getPkgFile({
   pkgList,
-  async fileReady(fileBuffer, filePath) {
-    const tempFilePath = path.join(fileURLToPath(new URL('.', import.meta.url)), '../.temp', filePath)
+  async fileReady(fileBuffer, pkg) {
+    const tempFilePath = path.join(fileURLToPath(new URL('.', import.meta.url)), '../.temp', `${pkg.name}.tgz`)
     await fs.ensureFile(tempFilePath)
     await fs.writeFile(tempFilePath, fileBuffer)
   },

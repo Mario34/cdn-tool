@@ -9,7 +9,7 @@ import { getPkgFile } from '@mario34/cdn-tool'
 
 getPkgFile({
   pkgList,
-  async fileReady(fileBuffer, filePath) {
+  async fileReady(fileBuffer, pkg) {
     // 处理文件
   },
 })
