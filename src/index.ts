@@ -9,12 +9,14 @@ const defaultOption: GetPkgsFileOption = {
   pkgList: [],
   fileReady: () => Promise.resolve(),
   getPkgUrl,
+  queueStep: 100,
 }
 
 export interface GetPkgsFileOption {
   pkgList: CDNToolNS.PkgConfig[]
   fileReady?: (fileBuffer: Buffer, pkg: CDNToolNS.PkgConfig) => Promise<void>
   getPkgUrl?: (pkgConfig: CDNToolNS.PkgConfig) => string
+  queueStep?: number
 }
 
 function getPkgUrl({ name, version }: CDNToolNS.PkgConfig) {
@@ -27,16 +29,19 @@ export async function getPkgFile(option: GetPkgsFileOption) {
     pkgList,
     fileReady,
     getPkgUrl,
+    queueStep,
   } = Object.assign(defaultOption, option)
   spinner.start()
-  for (let i = 0; i < pkgList.length; i++) {
-    const pkgConfig = pkgList[i]
-    const tgzUrl = getPkgUrl(pkgConfig)
-    console.log(tgzUrl)
-    spinner.text = `download ${pkgConfig.name}@${pkgConfig.version} ${tgzUrl}`
-    spinner.text = `download [${i + 1}/${pkgList.length}] ${pkgConfig.name}@${pkgConfig.version} ${tgzUrl}`
-    const fileBuffer = await got(tgzUrl).buffer()
-    await fileReady(fileBuffer, pkgConfig)
+  for (let i = 0; i < pkgList.length; i += queueStep) {
+    const currentFiles = pkgList.slice(i, i + queueStep)
+    await Promise.all(
+      currentFiles.map(async (pkgConfig) => {
+        const tgzUrl = getPkgUrl(pkgConfig)
+        spinner.text = `download [${i + 1}/${pkgList.length}] ${pkgConfig.name}@${pkgConfig.version} ${tgzUrl}\n`
+        const fileBuffer = await got(tgzUrl).buffer()
+        await fileReady(fileBuffer, pkgConfig)
+      }),
+    )
   }
   spinner.stop()
 }
